@@ -1,0 +1,6 @@
+*.java          text diff=java
+*.yml           text
+*.xml           text
+*.md            text
+.gitattributes  text
+.gitignore      text
