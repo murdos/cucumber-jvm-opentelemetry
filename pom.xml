@@ -24,6 +24,26 @@
         <cucumber.version>7.22.2</cucumber.version>
     </properties>
 
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://opensource.org/license/MIT</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Aurélien Mino</name>
+            <email>aurelien.mino@gmail.com</email>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:https://github.com/murdos/cucumber-jvm-opentelemetry.git</connection>
+        <url>https://github.com/murdos/cucumber-jvm-opentelemetry</url>
+        <tag>HEAD</tag>
+    </scm>
+
     <distributionManagement>
         <snapshotRepository>
             <id>central</id>
