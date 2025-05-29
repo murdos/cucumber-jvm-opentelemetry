@@ -1,0 +1,38 @@
+name: Publish Snapshots
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - 'main'
+concurrency:
+  group: ci-snapshots
+  cancel-in-progress: true
+
+jobs:
+  release:
+    name: Publish snapshots on Central Portal
+    if: github.repository == 'murdos/cucumber-jvm-opentelemetry'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Apache Maven Central
+        uses: actions/setup-java@v4
+        with:
+          java-version: 8
+          distribution: 'temurin'
+          cache: 'maven'
+          server-id: central
+          server-username: CENTRAL_PORTAL_USERNAME
+          server-password: CENTRAL_PORTAL_PASSWORD
+          gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
+          gpg-passphrase: MAVEN_GPG_PASSPHRASE
+
+      - name: Build and publish
+        run: mvn deploy --no-transfer-progress --batch-mode --activate-profiles release
+        env:
+          CENTRAL_PORTAL_USERNAME: ${{ secrets.CENTRAL_PORTAL_USERNAME }}
+          CENTRAL_PORTAL_PASSWORD: ${{ secrets.CENTRAL_PORTAL_PASSWORD }}
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
