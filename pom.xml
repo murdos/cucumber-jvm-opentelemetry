@@ -3,9 +3,12 @@
 
     <groupId>io.github.murdos</groupId>
     <artifactId>cucumber-jvm-opentelemetry</artifactId>
-    <packaging>jar</packaging>
-    <name>Cucumber-JVM: OpenTelemetry</name>
     <version>0.0.2-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>Cucumber-JVM: OpenTelemetry</name>
+    <description>OpenTelemetry plugin for Cucumber-JVM</description>
+    <url>https://github.com/murdos/cucumber-jvm-opentelemetry</url>
 
     <properties>
         <java.version>1.8</java.version>
