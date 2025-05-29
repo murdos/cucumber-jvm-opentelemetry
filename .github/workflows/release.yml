@@ -9,8 +9,6 @@ on:
         default: 'X.Y.Z'
       developmentVersion:
         description: 'Default version to use for new local working copy.'
-        required: true
-        default: ''
 
 jobs:
   release:
