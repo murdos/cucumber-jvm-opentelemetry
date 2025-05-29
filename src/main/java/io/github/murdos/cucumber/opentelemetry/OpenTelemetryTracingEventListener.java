@@ -94,7 +94,7 @@ public class OpenTelemetryTracingEventListener implements ConcurrentEventListene
      */
     private Tracer getTracer() {
         if (tracer == null) {
-            tracer = GlobalOpenTelemetry.getTracer(getClass().getPackageName());
+            tracer = GlobalOpenTelemetry.getTracer(getClass().getPackage().getName());
         }
         return tracer;
     }
