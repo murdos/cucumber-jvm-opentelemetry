@@ -1,4 +1,4 @@
-package io.cucumber.opentelemetry;
+package io.github.murdos.cucumber.opentelemetry;
 
 import java.util.Arrays;
 import java.util.HashMap;
