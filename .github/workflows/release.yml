@@ -38,12 +38,6 @@ jobs:
           gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
           gpg-passphrase: MAVEN_GPG_PASSPHRASE
 
-      - name: Extract last released version
-        id: detect_versions
-        run: |
-          version=$(grep -oP '<version>\K[0-9]+\.[0-9]+\.[0-9]+' README.md | head -n 1)
-          echo "previousVersion=$version" >> $GITHUB_OUTPUT
-
       - name: Prepare and perform release
         run: mvn release:prepare release:perform --no-transfer-progress --batch-mode -DreleaseVersion=${{ github.event.inputs.releaseVersion }} -DdevelopmentVersion=${{ github.event.inputs.developmentVersion }}
         env:
