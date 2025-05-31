@@ -28,7 +28,7 @@ import io.opentelemetry.api.trace.SpanBuilder;
 import io.opentelemetry.api.trace.StatusCode;
 import io.opentelemetry.api.trace.Tracer;
 import io.opentelemetry.context.Scope;
-import io.opentelemetry.semconv.trace.attributes.SemanticAttributes;
+import io.opentelemetry.semconv.incubating.CodeIncubatingAttributes;
 
 public class OpenTelemetryTracingEventListener implements ConcurrentEventListener {
     // FUTURE: Make this configurable
@@ -113,9 +113,9 @@ public class OpenTelemetryTracingEventListener implements ConcurrentEventListene
                 .setAttribute(ATTRIBUTE_KEY_CASE_KEYWORD, event.getTestCase().getKeyword())
                 .setAttribute(ATTRIBUTE_KEY_CASE_NAME, event.getTestCase().getName())
                 .setAttribute(ATTRIBUTE_KEY_CASE_ID, event.getTestCase().getId().toString())
-                .setAttribute(SemanticAttributes.CODE_FILEPATH, event.getTestCase().getUri().toString())
-                .setAttribute(SemanticAttributes.CODE_LINENO, (long) event.getTestCase().getLocation().getLine())
-                .setAttribute(SemanticAttributes.CODE_COLUMN, (long) event.getTestCase().getLocation().getColumn())
+                .setAttribute(CodeIncubatingAttributes.CODE_FILEPATH, event.getTestCase().getUri().toString())
+                .setAttribute(CodeIncubatingAttributes.CODE_LINENO, (long) event.getTestCase().getLocation().getLine())
+                .setAttribute(CodeIncubatingAttributes.CODE_COLUMN, (long) event.getTestCase().getLocation().getColumn())
                 .setAttribute(ATTRIBUTE_KEY_SOURCE_TAGS, event.getTestCase().getTags());
 
         if (START_NEW_TRACE_FOR_EACH_TEST_CASE) {
@@ -144,9 +144,9 @@ public class OpenTelemetryTracingEventListener implements ConcurrentEventListene
                     .setAttribute(ATTRIBUTE_KEY_STEP_KEYWORD, pickle.getStep().getKeyword())
                     .setAttribute(ATTRIBUTE_KEY_STEP_TEXT, pickle.getStep().getText())
                     .setAttribute(ATTRIBUTE_KEY_STEP_PATTERN, pickle.getPattern())
-                    .setAttribute(SemanticAttributes.CODE_FILEPATH, pickle.getUri().toString())
-                    .setAttribute(SemanticAttributes.CODE_LINENO, (long) pickle.getStep().getLocation().getLine())
-                    .setAttribute(SemanticAttributes.CODE_COLUMN, (long) pickle.getStep().getLocation().getColumn());
+                    .setAttribute(CodeIncubatingAttributes.CODE_FILEPATH, pickle.getUri().toString())
+                    .setAttribute(CodeIncubatingAttributes.CODE_LINENO, (long) pickle.getStep().getLocation().getLine())
+                    .setAttribute(CodeIncubatingAttributes.CODE_COLUMN, (long) pickle.getStep().getLocation().getColumn());
 
             if (pickle.getStep().getArgument() != null) {
                 spanBuilder.setAttribute(ATTRIBUTE_KEY_STEP_ARGUMENT, pickle.getStep().getArgument().toString());
@@ -189,8 +189,8 @@ public class OpenTelemetryTracingEventListener implements ConcurrentEventListene
 
         final Matcher m = CODE_LOCATION_CLASS_METHOD_PATTERN.matcher(codeLocation);
         if (m.matches()) {
-            spanBuilder.setAttribute(SemanticAttributes.CODE_NAMESPACE, m.group(1) + "." + m.group(2));
-            spanBuilder.setAttribute(SemanticAttributes.CODE_FUNCTION, m.group(3));
+            spanBuilder.setAttribute(CodeIncubatingAttributes.CODE_NAMESPACE, m.group(1) + "." + m.group(2));
+            spanBuilder.setAttribute(CodeIncubatingAttributes.CODE_FUNCTION, m.group(3));
             if (!m.group(4).isEmpty()) {
                 spanBuilder.setAttribute(ATTRIBUTE_KEY_CODE_FUNCTION_ARGS,
                     Arrays.asList(m.group(4).split(",\\s*")));
