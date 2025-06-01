@@ -22,7 +22,7 @@
         <maven-gpg-plugin.version>3.2.7</maven-gpg-plugin.version>
         <central-publishing-maven-plugin.version>0.7.0</central-publishing-maven-plugin.version>
 
-        <opentelemetry.version>1.25.0</opentelemetry.version>
+        <opentelemetry.version>1.50.0</opentelemetry.version>
         <opentelemetry-semconv.version>1.25.0</opentelemetry-semconv.version>
         <cucumber.version>7.22.2</cucumber.version>
     </properties>
