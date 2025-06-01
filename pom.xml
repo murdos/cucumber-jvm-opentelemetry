@@ -2,13 +2,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.github.murdos</groupId>
-    <artifactId>cucumber-jvm-opentelemetry</artifactId>
+    <artifactId>cucumber-opentelemetry-plugin</artifactId>
     <version>0.0.3-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>Cucumber-JVM: OpenTelemetry</name>
+    <name>Cucumber-JVM OpenTelemetry Plugin</name>
     <description>OpenTelemetry plugin for Cucumber-JVM</description>
-    <url>https://github.com/murdos/cucumber-jvm-opentelemetry</url>
+    <url>https://github.com/murdos/cucumber-opentelemetry-plugin</url>
 
     <properties>
         <java.version>1.8</java.version>
@@ -42,8 +42,8 @@
     </developers>
 
     <scm>
-        <connection>scm:git:https://github.com/murdos/cucumber-jvm-opentelemetry.git</connection>
-        <url>https://github.com/murdos/cucumber-jvm-opentelemetry</url>
+        <connection>scm:git:https://github.com/murdos/cucumber-opentelemetry-plugin.git</connection>
+        <url>https://github.com/murdos/cucumber-opentelemetry-plugin</url>
         <tag>HEAD</tag>
     </scm>
 

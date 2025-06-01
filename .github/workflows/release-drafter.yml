@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   update_release_draft:
-    if: github.repository == 'murdos/cucumber-jvm-opentelemetry'
+    if: github.repository == 'murdos/cucumber-opentelemetry-plugin'
     permissions:
       contents: write
     runs-on: ubuntu-latest

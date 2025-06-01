@@ -13,7 +13,7 @@ on:
 jobs:
   release:
     name: Release on Maven Central
-    if: github.repository == 'murdos/cucumber-jvm-opentelemetry'
+    if: github.repository == 'murdos/cucumber-opentelemetry-plugin'
     runs-on: ubuntu-latest
     permissions:
       contents: write

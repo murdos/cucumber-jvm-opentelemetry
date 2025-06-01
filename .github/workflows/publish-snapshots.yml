@@ -12,7 +12,7 @@ concurrency:
 jobs:
   release:
     name: Publish snapshots on Central Portal
-    if: github.repository == 'murdos/cucumber-jvm-opentelemetry'
+    if: github.repository == 'murdos/cucumber-opentelemetry-plugin'
     runs-on: ubuntu-latest
 
     steps:
