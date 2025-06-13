@@ -3,7 +3,7 @@
 
     <groupId>io.github.murdos</groupId>
     <artifactId>cucumber-opentelemetry-plugin</artifactId>
-    <version>0.0.3-SNAPSHOT</version>
+    <version>0.0.3</version>
     <packaging>jar</packaging>
 
     <name>Cucumber-JVM OpenTelemetry Plugin</name>
@@ -43,7 +43,7 @@
     <scm>
         <connection>scm:git:https://github.com/murdos/cucumber-opentelemetry-plugin.git</connection>
         <url>https://github.com/murdos/cucumber-opentelemetry-plugin</url>
-        <tag>HEAD</tag>
+        <tag>0.0.3</tag>
     </scm>
 
     <distributionManagement>
